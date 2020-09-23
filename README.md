@@ -2,6 +2,7 @@
 
 Sextractor: 
 install FINK: 
+download `fink-0.45.1.tar.gz` from https://www.finkproject.org/download/srcdist.php
 tar -xvf fink-0.45.1.tar 
 cd fink-0.45.1
 vi INSTALL
