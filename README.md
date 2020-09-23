@@ -27,3 +27,6 @@ make
 
 make install
 
+
+# install ATLAS:
+download package from:  https://sourceforge.net/project/showfiles.php?group_id=23725
