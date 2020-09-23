@@ -1,8 +1,6 @@
-# note
+## Sextractor: 
 
-Sextractor: 
-
-install FINK: 
+# install FINK: 
 
 download `fink-0.45.1.tar.gz` from https://www.finkproject.org/download/srcdist.php
 
@@ -20,5 +18,12 @@ add ` . /Users/wwxu/software/autoconf/fink-0.45.1/bin/init.sh` to ~/.bash_profil
 
 /Users/wwxu/software/autoconf/fink-0.45.1/bin/pathsetup.sh
 
+# install FFTW: 
+download from `fftw-3.3.8.tar.gz` from http://www.fftw.org/download.html
 
+./configure\\
+
+make
+
+make install
 
