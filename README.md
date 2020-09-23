@@ -16,6 +16,8 @@ vi INSTALL
 
 . /Users/wwxu/software/autoconf/fink-0.45.1/bin/init.sh
 
+add ` . /Users/wwxu/software/autoconf/fink-0.45.1/bin/init.sh` to ~/.bash_profile
+
 /Users/wwxu/software/autoconf/fink-0.45.1/bin/pathsetup.sh
 
 
