@@ -48,8 +48,69 @@ download package from:  https://sourceforge.net/project/showfiles.php?group_id=2
 # Install SExtractor 
    sh autogen.sh
    
-   ./configure --with-fftw-incdir=/usr/local/include/ --with-atlas-incdir=/usr/local/atlas/include
-   ./configure --with-fftw-incdir=/usr/local/include/ --with-atlas-incdir=/usr/local/atlas/include --with-atlas=/usr/local/atlas
+   ./configure --with-fftw-incdir=/usr/local/include --with-atlas-incdir=/usr/local/atlas/include
+   
+   ./configure --with-fftw-incdir=/usr/local/include --with-atlas-incdir=/usr/local/atlas/include --with-atlas=/usr/local/atlas --with-atlas-lib=/usr/local/atlas/lib
+   
+   
+   1332 | #define HAVE_STRSTR 1
+1333 | #define HAVE_SYSCONF 1
+1334 | #define HAVE_FSEEKO 1
+1335 | #define XSL_URL "file:///usr/local/share/sextractor/sextractor.xsl"
+1336 | #define THREADS_NMAX 1024
+1337 | #define USE_MODEL 1
+1338 | #define FFTW_H "/usr/local/include/fftw3.h"
+1339 | #define HAVE_FFTWF 1
+1340 | #define HAVE__USR_LOCAL_ATLAS_INCLUDE_CBLAS_H 1
+1341 | #define HAVE__USR_LOCAL_ATLAS_INCLUDE_CLAPACK_H 1
+1342 | #define ATLAS_BLAS_H "/usr/local/atlas/include/cblas.h"
+1343 | #define ATLAS_LAPACK_H "/usr/local/atlas/include/clapack.h"
+1344 | /* end confdefs.h.  */
+1345 |
+1346 | /* Override any GCC internal prototype to avoid an error.
+1347 |    Use char because int might match the return type of a GCC
+1348 |    builtin and then its argument prototype would still apply.  */
+1349 | #ifdef __cplusplus
+1350 | extern "C"
+1351 | #endif
+1352 | char clapack_dpotrf ();
+1353 | int
+1354 | main ()
+1355 | {
+1356 | return clapack_dpotrf ();
+1357 |   ;
+1358 |   return 0;
+1359 | }
+1360 configure:15373: /usr/local/bin/gcc-10 -o conftest -g -O2 -I/usr/local/opt/qt/include -L/usr/local/opt/qt/lib conftest.c -lsatlas
+1361     >&5
+1362 ld: library not found for -lsatlas
+1363 collect2: error: ld returned 1 exit status
+1364 configure:15373: $? = 1
+
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   ./configure --with-fftw-incdir=/usr/local/include --with-atlas-incdir=/usr/local/atlas/include --with-atlas=/usr/local/atlas --with-atlas-library=/usr/local/atlas/lib/libatlas.a --with-cblas-incdir=/usr/local/atlas/include/cblas.h --with-cblas-lib=/usr/lib/libcblas.dylib --with-clapack-inc=/usr/local/atlas/include/clapack.h --with-clapack-lib=/usr/local/atlas/lib/liblapack.a  --with-blas-lib=/usr/lib/libblas.dylib 
+
+   
+ATLAS_LIBRARY =/usr/local/atlas/lib/libatlas.a
+CBLAS_INCLUDES =/usr/local/atlas/include/cblas.h
+CBLAS_LIBRARY = /usr/lib/libcblas.dylib
+CLAPACK_INCLUDES =/usr/local/atlas/include/clapack.h
+CLAPACK_LIBRARY =/usr/local/atlas/lib/liblapack.a
+   
+   ./configure --with-fftw-incdir=/usr/local/include --with-atlas-incdir=/usr/local/atlas/include --with-atlas=/usr/local/atlas
 checking for sincosf... no
 checking for strstr... yes
 checking for sysconf... yes
@@ -75,7 +136,7 @@ checking for library containing clapack_dpotrf... no
 checking for library containing clapack_dpotrf... no
 configure: error: ATLAS library files not found! Exiting.
 
-./configure --with-fftw-incdir=/usr/local/include/ --with-atlas-incdir=/Users/wwxu/software/autoconf/ATLAS/my_build_dir/include --with-atlas=/Users/wwxu/software/autoconf/ATLAS/my_build_dir
+./configure --with-fftw-incdir=/usr/local/include --with-atlas-incdir=/Users/wwxu/software/autoconf/ATLAS/my_build_dir/include --with-atlas=/Users/wwxu/software/autoconf/ATLAS/my_build_dir
 
 checking for special C compiler options needed for large files... no
 checking for _FILE_OFFSET_BITS value needed for large files... no
