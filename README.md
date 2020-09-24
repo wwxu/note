@@ -33,10 +33,10 @@ cd lapack-3.9.0
 mkdir build
 cd build
 cmake -DCMAKE_INSTALL_LIBDIR=/usr/local/lapack  ..
-cd build 
 cmake --build .
 cmake install
-
+make
+sudo make install
 
 # install ATLAS:
 download package from:  https://sourceforge.net/project/showfiles.php?group_id=23725
