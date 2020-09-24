@@ -44,3 +44,10 @@ download package from:  https://sourceforge.net/project/showfiles.php?group_id=2
    make time         ! provide performance summary as % of clock rate
    
    make install      ! Copy library and include files to other directories
+
+# Install SExtractor 
+   sh autogen.sh
+   
+   ./configure --with-fftw-incdir=/usr/local/include/
+   
+   make 
