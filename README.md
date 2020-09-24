@@ -27,6 +27,16 @@ make
 
 make install
 
+# install lapack 
+download package lapack-3.9.0.tar.gz from: http://www.netlib.org/lapack/#_lapack_version_3_9_0
+cd lapack-3.9.0 
+mkdir build
+cd build
+cmake -DCMAKE_INSTALL_LIBDIR=/usr/local/lapack  ..
+cd build 
+cmake --build .
+cmake install
+
 
 # install ATLAS:
 download package from:  https://sourceforge.net/project/showfiles.php?group_id=23725
@@ -44,6 +54,14 @@ download package from:  https://sourceforge.net/project/showfiles.php?group_id=2
    make time         ! provide performance summary as % of clock rate
    
    make install      ! Copy library and include files to other directories
+
+; pip install ATLAS
+; ls  /Users/wwxu/software/miniconda3/lib/python3.7/site-packages/atlas-0.27.0.dist-info/
+; INSTALLER  METADATA  RECORD  REQUESTED  WHEEL  top_level.txt  zip-safe
+
+../configure -b 64 -D c -DPentiumCPS=2400 --prefix=/home/whaley/lib/atlas --with-netlib-lapack-tarfile=/home/whaley/dload/lapack-3.4.1.tgz
+
+
 
 # Install SExtractor 
    sh autogen.sh
