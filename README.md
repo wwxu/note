@@ -20,11 +20,8 @@ add ` . /Users/wwxu/software/autoconf/fink-0.45.1/bin/init.sh` to ~/.bash_profil
 
 # install FFTW: 
 download from `fftw-3.3.8.tar.gz` from http://www.fftw.org/download.html
-
 ./configure\\
-
 make
-
 make install
 
 # install lapack 
@@ -40,15 +37,10 @@ sudo make install
 
 # install ATLAS:
 download package from:  https://sourceforge.net/project/showfiles.php?group_id=23725
-
    mkdir my_build_dir ; cd my_build_dir
-   
    /path/to/ATLAS/configure [flags]
-   
-   make              ! tune and compile library
-   
-   make check        ! perform sanity tests
-   
+   make              ! tune and compile library   
+   make check        ! perform sanity tests   
    make ptcheck      ! checks of threaded code for multiprocessor systems
    
    make time         ! provide performance summary as % of clock rate
@@ -68,7 +60,7 @@ download package from:  https://sourceforge.net/project/showfiles.php?group_id=2
    
    ./configure --with-fftw-incdir=/usr/local/include --with-atlas-incdir=/usr/local/atlas/include
    
-   ./configure --with-fftw-incdir=/usr/local/include --with-atlas-incdir=/usr/local/atlas/include --with-atlas=/usr/local/atlas --with-atlas-lib=/usr/local/atlas/lib
+   ./configure --with-fftw-incdir=/usr/local/include --with-atlas=/usr/local/atlas --with-atlas-incdir=/usr/local/atlas/include --with-atlas-lib=/usr/local/atlas/lib
    
    
    1332 | #define HAVE_STRSTR 1
