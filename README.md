@@ -30,3 +30,11 @@ make install
 
 # install ATLAS:
 download package from:  https://sourceforge.net/project/showfiles.php?group_id=23725
+
+   mkdir my_build_dir ; cd my_build_dir
+   /path/to/ATLAS/configure [flags]
+   make              ! tune and compile library
+   make check        ! perform sanity tests
+   make ptcheck      ! checks of threaded code for multiprocessor systems
+   make time         ! provide performance summary as % of clock rate
+   make install      ! Copy library and include files to other directories
