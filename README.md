@@ -174,10 +174,9 @@ configure: error: ATLAS header files not found in /Users/wwxu/software/autoconf/
    make 
 
 
-
-#############################################################################################
-#######################################################################################################
-#######################################################################################################
+##############################################################
+##############################################################
+##############################################################
 
 ################ setting SSH ###############################
 1. pbcopy < ~/.ssh/id_rsa.pub # Copies the contents of the id_rsa.pub file to your clipboard
@@ -202,6 +201,21 @@ git diff
 
 ### subtitle
 
-#############################################################################################
-#######################################################################################################
-#######################################################################################################
+##############################################################
+##############################################################
+##############################################################
+
+…or create a new repository on the command line
+ echo "# test1" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:wwxu/test1.git
+git push -u origin main
+…or push an existing repository from the command line
+ git remote add origin git@github.com:wwxu/test1.git
+git branch -M main
+git push -u origin main
+…or import code from another repository
+You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
