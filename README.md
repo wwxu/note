@@ -172,3 +172,36 @@ checking for /Users/wwxu/software/autoconf/ATLAS/my_build_dir/include/include/cb
 configure: error: ATLAS header files not found in /Users/wwxu/software/autoconf/ATLAS/my_build_dir/include! Exiting.
 
    make 
+
+
+
+#############################################################################################
+#######################################################################################################
+#######################################################################################################
+
+################ setting SSH ###############################
+1. pbcopy < ~/.ssh/id_rsa.pub # Copies the contents of the id_rsa.pub file to your clipboard
+2. In the upper-right corner of any page, click your profile photo, then click Settings
+3. In the user settings sidebar, click SSH and GPG keys.
+4. Click New SSH key or Add SSH key.
+5. In the "Title" field, add a descriptive label for the new key. For example, if you're using a personal Mac, you might call this key "Personal MacBook Air".
+Paste your key into the "Key" field.
+6. Click Add SSH key.
+
+#######################################
+
+git clone git@github.com:wwxu/test.git
+
+git status  
+git add README.md or git add .  
+git commit or git commit -m "add a new cmt"   
+git push  
+git log  
+
+git diff
+
+### subtitle
+
+#############################################################################################
+#######################################################################################################
+#######################################################################################################
