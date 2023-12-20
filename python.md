@@ -25,6 +25,16 @@ idd=y['fcs'];                   idd2=y['idd'];          ra=y['ra(deg)'];        
 n_det=np.size(idd)
 print("number of detections:", n_det)
 
+### readin csv file
+
+from astropy.table import Table, vstack
+import os
+
+sour_tab = Table.read('../pos_gw_all.csv')
+
+for obj in sour_tab[:]:
+    obj_name=obj['name']
+    index=obj['index']
 
 
 ### readin fits file
@@ -91,3 +101,17 @@ def self_match(ra1,dec1,z1,dis):
     return ra_new, dec_new,z_new
 
 ra_sp_new, dec_sp_new, z_sp_new= self_match(ra_sp, dec_sp, z_sp,dis_lim)
+
+
+### Convert UTC time to mjd, convert mjd to UTC #############################
+
+from astropy.time import Time
+
+times="2020-01-01"
+t = Time(times, format='isot', scale='utc')
+date=t.mjd # 58849.0
+
+mjd='58776'
+t=Time(mjd,format='mjd')
+t.format = 'isot'
+t.value # '2019-10-20T00:00:00.000'
