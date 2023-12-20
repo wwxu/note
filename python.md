@@ -36,6 +36,32 @@ for obj in sour_tab[:]:
     obj_name=obj['name']
     index=obj['index']
 
+### write and read *csv ###########################################
+
+import numpy as np
+from astropy.io import ascii
+from astropy.table import Table
+data = Table()
+data['RXGCC'                     ] = ['{:6s}'.format(x)   for x in idd_rxgcc]
+data['RAJ2000[deg]'              ] = ['{:7.3f}'.format(x) for x in ra_rxgcc]
+data['DEJ2000[deg]'              ] = ['{:7.3f}'.format(x) for x in dec_rxgcc]
+data['Ext[arcmin]'               ] = ['{:7.2f}'.format(x) for x in extent_rxgcc]
+data['Ext,ml'                    ] = ['{:7.2f}'.format(x) for x in extml_rxgcc]
+#data['Alias'                     ] = alias_rxgcc
+#data['Tile'                      ] = tile_rxgcc
+ascii.write(data, 'table_rxgcc.csv', delimiter='&', overwrite=True)
+
+import numpy as np
+from astropy.io import ascii
+from astropy.table import Table
+t = Table.read('table_rxgcc.csv', format='ascii', delimiter='&')
+t['RAJ2000[deg]'] # float array
+
+### readin *txt, *dat, *cat file 
+# the first line of the *.cat is `# ra dec ...`
+f = open('sdss_legacy_hscoverlap_mcut11.0.cat', 'r')
+ra, dec, z, mstar, mstar_err = np.loadtxt(f, usecols=(0, 1, 2, 3, 4), unpack=True, comments='#', delimiter=None)
+f.close()
 
 ### readin fits file
 
@@ -58,6 +84,37 @@ c4 = fits.Column(name='z',       array=z,      format='D',   ascii=True)
 c5 = fits.Column(name='deltaz',  array=deltaz, format='D',   ascii=True)
 t = fits.BinTableHDU.from_columns([c1, c2, c3, c4, c5])
 t.writeto('Hasselfield2013_68.fits', overwrite=True)
+
+### read and write npz, npy, h5 file
+#################### readin *.npz file ############################################
+
+import numpy as np 
+f=np.load("nz_compare_knnsom.npz") # NPZ file is a NumPy Zipped Data.
+print(f.files)         # to show columns
+z_tr=f['z_tr'])     # to get columns 
+np.size(f['z_tr'])     # 150
+type(f['z_tr'])     # <class 'numpy.ndarray'>
+
+##################################################################################
+
+import numpy as np
+x=np.ndarray(shape=(3,10), dtype=float, order='F') # type(ndarray)
+with open('test.npy', 'wb') as f:
+    np.save(f, x)
+
+with open('test.npy', 'rb') as f:
+    a = np.load(f)
+
+#################### write h5py file ############################################
+import h5py  # 导入工具包
+import numpy as np
+
+imgData = np.zeros((30, 3))
+with h5py.File('HDF5_FILE.h5', 'w') as f:
+    f.create_dataset('data', data=imgData)
+    f.create_dataset('labels', data=range(100))
+
+print '*.h5 Created.'
 
 ### remove all repetitive one and reserve only one in dis<dis  ###########################
 def self_match(ra1,dec1,z1,dis):
@@ -115,3 +172,16 @@ mjd='58776'
 t=Time(mjd,format='mjd')
 t.format = 'isot'
 t.value # '2019-10-20T00:00:00.000'
+
+
+
+### flat: make 2-d array to 1-d array  ##############################
+from numpy import matrix as mat
+
+a = [[1,3],[2,4],[3,5]]
+a = mat(a)
+y = a.flatten()     # matrix([[1, 3, 2, 4, 3, 5]])
+y = a.flatten().A     # array([[1, 3, 2, 4, 3, 5]])
+
+### convert degree to radian as unit #################
+np.deg2rad(dec[i])
